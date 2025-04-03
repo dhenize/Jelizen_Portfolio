@@ -1,9 +1,25 @@
-import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./Components/Header";
+import Homepage from "./Pages/Homepage";
+import AboutUs from "./Pages/AboutUs";
+import Members from "./Pages/Members";
+import Projects from "./Pages/Projects";
+import ContactUs from "./Pages/ContactUs";
 
-const App = () => {
+
+function App() {
   return (
-    <h1>Insert codes for routing here</h1>
-  )
+    <Router>
+      <Routes>
+      <Route path = "/" element={<Header/>} />
+        <Route path = "/" element={<Homepage/>} />
+        <Route path = "/" element={<AboutUs/>} />
+        <Route path = "/" element={<Members/>} />
+        <Route path = "/" element={<Projects/>} />
+        <Route path = "/" element={<ContactUs/>} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
