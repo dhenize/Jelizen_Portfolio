@@ -1,14 +1,40 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import logo from '../assets/logo.png';
 
-
-function Header(){
+function Header() {
   return (
-    <div class = "flex flex-row">
-        <div>
-            <Link to = "/Homepage">
-            <button type="button" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Home</button>
-            </Link>
-        </div>
+    <div className="flex flex-row">
+      <img src = {logo}/>
+
+      <Link to="/">
+        <button type="button" className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800">
+          Home
+        </button>
+      </Link>
+
+      <Link to="/about">
+        <button type="button" className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800">
+          About Us
+        </button>
+      </Link>
+      
+      <Link to="/members">
+        <button type="button" className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800">
+          Members
+        </button>
+      </Link>
+
+      <Link to="/project">
+        <button type="button" className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800">
+          Projects
+        </button>
+      </Link>
+
+      <Link to="/contact">
+        <button type="button" className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800">
+          Contact Us
+        </button>
+      </Link>
     </div>
   );
 }

@@ -10,13 +10,13 @@ import ContactUs from "./Pages/ContactUs";
 function App() {
   return (
     <Router>
+    <Header/>
       <Routes>
-      <Route path = "/" element={<Header/>} />
         <Route path = "/" element={<Homepage/>} />
-        <Route path = "/" element={<AboutUs/>} />
-        <Route path = "/" element={<Members/>} />
-        <Route path = "/" element={<Projects/>} />
-        <Route path = "/" element={<ContactUs/>} />
+        <Route path = "/about" element={<AboutUs/>} />
+        <Route path = "/members" element={<Members/>} />
+        <Route path = "/project" element={<Projects/>} />
+        <Route path = "/contact" element={<ContactUs/>} />
       </Routes>
     </Router>
   );
