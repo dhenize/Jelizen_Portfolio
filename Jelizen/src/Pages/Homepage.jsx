@@ -57,7 +57,15 @@ const Homepage = () => {
       <div>
 
       </div>
+
+
+
+      {/*GROUP PROJECTS*/}
+      <div>
+
+      </div>
     </section>
+    
   );
 }
 

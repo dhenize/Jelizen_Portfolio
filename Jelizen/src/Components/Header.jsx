@@ -3,7 +3,7 @@ import logo from '../assets/pics/logo.png';
 
 function Header() {
   return (
-    <header className = "flex items-row justify-between bg-[#1A1714] shadow-xl/20 px-4 py-3 sm:px-5 md:px-8 lg:px-10">
+    <header className = "flex items-row justify-between fixed top-0 left-0 w-full bg-[#1A1717] shadow-xl/20 px-4 py-3 sm:px-5 md:px-8 lg:px-10">
         <div className="flex items-center flex-shrink-0">
           <img className = "h-9 w-auto" src = {logo}/>
         </div>

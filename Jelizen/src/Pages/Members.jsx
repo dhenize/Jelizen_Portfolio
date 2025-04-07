@@ -2,7 +2,9 @@ import React from 'react';
 
 function Members(){
   return (
-    <div>Members, try</div>
+    <section>
+      Members, try
+    </section>
   )
 }
 
