@@ -10,17 +10,21 @@ import ContactUs from "./Pages/ContactUs";
 
 function App() {
   return (
-    <Router>
-    <Header/>
-      <Routes>
-        <Route path = "/" element={<Homepage/>} />
-        <Route path = "/about" element={<AboutUs/>} />
-        <Route path = "/members" element={<Members/>} />
-        <Route path = "/project" element={<Projects/>} />
-        <Route path = "/contact" element={<ContactUs/>} />
-      </Routes>
-    <Footer/>
-    </Router>
+    <div className="flex flex-col min-h-screen">
+      <Router>
+      <Header/>
+      <div className="flex-grow">
+        <Routes>
+          <Route path = "/" element={<Homepage/>} />
+          <Route path = "/about" element={<AboutUs/>} />
+          <Route path = "/members" element={<Members/>} />
+          <Route path = "/project" element={<Projects/>} />
+          <Route path = "/contact" element={<ContactUs/>} />
+        </Routes>
+      </div>
+      <Footer/>
+      </Router>
+    </div>
   );
 }
 

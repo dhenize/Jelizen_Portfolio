@@ -1,11 +1,14 @@
-import React from 'react';
+import React from 'react'
+import dp from '../assets/pics/sampledp.png';
+import email from '../assets/pics/emaillogo.png';
+import profile from '../assets/pics/proflogo.png';
 
-function Members(){
+const Members = () => {
   return (
     <section>
-      Members, try
-    </section>
+      
+   </section>
   )
 }
 
-export default Members;
+export default Members
