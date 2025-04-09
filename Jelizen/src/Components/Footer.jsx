@@ -5,13 +5,13 @@ import fb from '../assets/pics/fblogo.png';
 
 const Footer = () => {
   return (
-    <footer className='flex flex-col bg-[#151515]'>
+    <footer className='flex flex-col bg-[#151515] w-full'>
         <div className='m-9 ml-30'>
             <div className='mb-3'>
                 <p className='text-[0.9rem] text-[#F533FF]'>
                     ic.juliaann.fajardo@cvsu.edu.ph
                 </p>
-                <p className='text-[0.9rem]xt-[1rem] text-[#F533FF]'>
+                <p className='text-[0.9rem] text-[#F533FF]'>
                     ic.dhenizekristafaith.lopez@cvsu.edu.ph
                 </p>
                 <p className='text-[0.9rem] text-[#F533FF]'>
