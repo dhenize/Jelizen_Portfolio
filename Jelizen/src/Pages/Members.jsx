@@ -6,6 +6,10 @@ import SkillPercent from '../Components/SkillPercent.jsx';
 {/*ICONS FOR CAROUSEL*/}
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa';
 
+
+
+
+
 {/*PICS FOR INTRODUCTION*/}
 import dp from '../assets/pics/sampledp2.png';
 import email from '../assets/pics/emaillogo.png';
@@ -33,6 +37,61 @@ import js from '../assets/pics/s4-3.png';
 import php from '../assets/pics/s5-3.png';
 
 
+{/*FAJARDO'S PORTFOLIO PICS*/}
+import julia1 from '../assets/pics/julia/j1.jpg';
+import julia2 from '../assets/pics/julia/j2.jpg';
+import julia3 from '../assets/pics/julia/j3.jpg';
+import julia4 from '../assets/pics/julia/j4.jpg';
+import julia5 from '../assets/pics/julia/j5.jpg';
+import julia6 from '../assets/pics/julia/j6.jpg';
+import julia7 from '../assets/pics/julia/j7.jpg';
+import julia8 from '../assets/pics/julia/j8.jpg';
+import julia9 from '../assets/pics/julia/j9.jpg';
+import julia10 from '../assets/pics/julia/j10-1.png';
+import julia11 from '../assets/pics/julia/j10-2.png';
+import julia12 from '../assets/pics/julia/j10-3.png';
+import julia13 from '../assets/pics/julia/j11-1.jpg';
+import julia14 from '../assets/pics/julia/j11-2.jpg';
+import julia15 from '../assets/pics/julia/j11-3.jpg';
+
+
+{/*LOPEZ'S PORTFOLIO PICS*/}
+import dhenz1 from '../assets/pics/dhenize/d1.png';
+import dhenz2 from '../assets/pics/dhenize/d2-1.png';
+import dhenz3 from '../assets/pics/dhenize/d2-2.png';
+import dhenz4 from '../assets/pics/dhenize/d3.png';
+import dhenz5 from '../assets/pics/dhenize/d4.jpg';
+import dhenz6 from '../assets/pics/dhenize/d5.jpg';
+{/*import dhenz7 from '../assets/pics/dhenize/d5.jpg';*/}
+import dhenz8 from '../assets/pics/dhenize/d7-1.png';
+import dhenz9 from '../assets/pics/dhenize/d7-2.png';
+import dhenz10 from '../assets/pics/dhenize/d10.jpg';
+import dhenz11 from '../assets/pics/dhenize/d11.png';
+import dhenz12 from '../assets/pics/dhenize/d12.jpg';
+import dhenz13 from '../assets/pics/dhenize/d12-2.jpg';
+import dhenz14 from '../assets/pics/dhenize/d13.jpg';
+
+
+{/*LOPEZ'S PORTFOLIO PICS*/}
+import jean1 from '../assets/pics/jeannen/je1.jpeg';
+import jean2 from '../assets/pics/jeannen/je2.jpeg';
+import jean3 from '../assets/pics/jeannen/je3.jpeg';
+import jean4 from '../assets/pics/jeannen/je4.jpeg';
+import jean5 from '../assets/pics/jeannen/je5.jpeg';
+import jean6 from '../assets/pics/jeannen/je6.jpeg';
+import jean7 from '../assets/pics/jeannen/je7.jpeg';
+import jean8 from '../assets/pics/jeannen/je8.jpeg';
+import jean9 from '../assets/pics/jeannen/je9.jpeg';
+import jean10 from '../assets/pics/jeannen/je10.jpeg';
+import jean11 from '../assets/pics/jeannen/je11.jpeg';
+
+
+
+
+
+
+
+
 
 {/*ARRAY FOR MEMBERS INFO*/}
 const Infos =[
@@ -52,7 +111,8 @@ const Infos =[
       {name: "Bootstrap", img: bootstrap, percentage: 35},
       {name: "CSS", img: css, percentage: 35}
     ],
-    tags: ["designing", "editing", "qa testing"]
+    tags: ["designing", "editing", "qa testing"],
+    gallery: [julia1, julia2 ,julia3, ,julia4, julia5, julia6, julia7, julia8, julia9, julia10, julia11, julia12, julia13, julia14, julia15]
   },
   {
     name: "DHENIZE KRISTA FAITH LOPEZ",
@@ -73,7 +133,8 @@ const Infos =[
       {name: "React", img: reactjs, percentage: 60},
       {name: "Medibang", img: medibang, percentage: 65}
     ],
-    tags: ["designing", "coding", "troubleshooting"]
+    tags: ["designing", "coding", "troubleshooting"],
+    gallery: [dhenz1, dhenz2, dhenz3, dhenz4, dhenz5, dhenz6, dhenz8, dhenz9, dhenz10, dhenz11, dhenz12, dhenz13, dhenz14]
   },
   {
     name: "JEANNEN BASAY",
@@ -98,7 +159,8 @@ const Infos =[
       {name: "PHP", img: php, percentage: 10},
       {name: "C++", img: cplus2, percentage: 2}
     ],
-    tags: ["designing", "editing", "front end"]
+    tags: ["designing", "editing", "front end"],
+    gallery: [jean1, jean2, jean3, jean4, jean5, jean6, jean7, jean8, jean9, jean10, jean11]
   }
 ];
 
@@ -119,6 +181,16 @@ const Members = () => {
   };
 
   const currentMember = Infos[currentIndex];
+
+  const [featuredImage, setFeatureddImage] = useState(currentMember.gallery[0]);
+  useEffect(() => {
+    setFeatureddImage(currentMember.gallery[0]);
+  }, [currentIndex]);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+
 
 
   return (
@@ -189,7 +261,7 @@ const Members = () => {
 
 
       {/*OPENING OF SKILLS*/}
-      <div className='flex justify-center items-center flex-col m-40'>
+      <div className='flex justify-center items-center flex-col m-25'>
         <div className='m-10'>
           <p className='text-[2rem] text-[#33FFC2] font-semibold tracking-[15px]'>
           skills
@@ -197,14 +269,14 @@ const Members = () => {
         </div>
       
 
-        <div className='grid grid-cols-5 gap-20 mt-10 mb-20'>
+        <div className='grid grid-cols-5 gap-15 mt-10 mb-20'>
           {currentMember.skills.map((skill, index) => (
             <SkillPercent key={index} image={skill.img} percentage={skill.percentage} />
           ))}
         </div>
 
         
-        <div className='flex flex-row justify-center items-center mt-20 mb-30 space-x-20'>
+        <div className='flex flex-row justify-center items-center mt-10 mb-20 space-x-20'>
         {currentMember.tags.map((tags, index) => (
           <p key={index} className='bg-[#F533FF] text-[#F0F0F0] text-[1.3rem] rounded-xl px-5 py-1'>
             {tags}
@@ -220,11 +292,57 @@ const Members = () => {
 
 
       {/*FOR GALLERY*/}
-      <div className='flex justify-center items-center m-40'>
+      <div className='flex flec-col justify-center items-center'>
         <p className='text-[2rem] text-[#33FFC2] font-semibold tracking-[15px]'>
           projects
         </p>
       </div>
+      <div className='flex flex-col items-center mt-5 mb-40 bg-[#3F3A3A] m-40 pt-5 pb-7 rounded-4xl'>
+        <div className='max-w-4xl h-[350px] mb-6 overflow-hidden rounded-xl shadow-lg transition-all duration-700 ease-in-out'>
+          <img
+            src={featuredImage}
+            alt="Featured"
+            className="w-full h-full object-cover rounded-xl cursor-pointer"
+            onClick={() => setIsModalOpen(true)}
+          />
+        </div>
+
+
+        {isModalOpen && (
+          <div
+            className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center"
+            onClick={() => setIsModalOpen(false)} // Close on background click
+          >
+            <img
+              src={featuredImage}
+              alt="Full view"
+              className="max-w-full max-h-full object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image
+            />
+          </div>
+        )}
+
+
+        <div className="flex overflow-x-auto space-x-2 max-w-full py-2 bg-[#2D2C2C] p-8 rounded-2xl">
+          {currentMember.gallery.map((img, index) => (
+            img && (
+              <img
+                key={index}
+                src={img}
+                alt={`Thumbnail ${index}`}
+                className={`w-24 h-24 object-cover rounded-lg cursor-pointer inline-block transition-transform duration-300 ease-in-out hover:scale-105 ${
+                  featuredImage === img ? 'ring-4 ring-[#F533FF]' : ''
+                }`}
+                onClick={() => setFeatureddImage(img)}
+              />
+            )
+          ))}
+        </div>
+      </div>
+      {/*ENDING FOR GALLERY*/}
+      
+
+
 
     </section>
   )
