@@ -6,7 +6,8 @@ import SkillPercent from '../Components/SkillPercent.jsx';
 {/*ICONS FOR CAROUSEL*/}
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa';
 
-
+{/*IMPORT FOR UPON SCROLLING ONLY FUNCTION*/}
+import useInView from '../Components/useInView.js';
 
 
 
@@ -189,6 +190,9 @@ const Members = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [skillsRef, skillsInView] = useInView({ threshold: 0.2 });
+
+
 
 
 
@@ -196,7 +200,7 @@ const Members = () => {
   return (
     <section>
       {/*OPENING OF INTRO CARD*/}
-      <div className='ml-40 mr-40 mt-30 columns-2 flex justify-center'>
+      <div className='ml-30 mr-30 mt-30 columns-2 flex justify-center'>
 
         <button onClick = {prevSlide}>
           <FaArrowAltCircleLeft className='text-white text-[3rem] hover:text-[#F533FF] mr-2'></FaArrowAltCircleLeft>
@@ -269,11 +273,17 @@ const Members = () => {
         </div>
       
 
-        <div className='grid grid-cols-5 gap-15 mt-10 mb-20'>
+        <div ref={skillsRef} className='grid grid-cols-5 gap-15 mt-10 mb-20'>
           {currentMember.skills.map((skill, index) => (
-            <SkillPercent key={index} image={skill.img} percentage={skill.percentage} />
+            <SkillPercent
+              key={index}
+              image={skill.img}
+              percentage={skill.percentage}
+              animate={skillsInView}
+            />
           ))}
         </div>
+
 
         
         <div className='flex flex-row justify-center items-center mt-10 mb-20 space-x-20'>
