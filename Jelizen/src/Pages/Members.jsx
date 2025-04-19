@@ -9,6 +9,8 @@ import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa';
 {/*IMPORT FOR UPON SCROLLING ONLY FUNCTION*/}
 import useInView from '../Components/useInView.js';
 
+{/*IMPORT FOR MEMBER TRANSITION ANIMATION*/}
+import{ motion, AnimatePresence } from 'framer-motion';
 
 
 {/*PICS FOR INTRODUCTION*/}
@@ -63,7 +65,7 @@ import dhenz3 from '../assets/pics/dhenize/d2-2.png';
 import dhenz4 from '../assets/pics/dhenize/d3.png';
 import dhenz5 from '../assets/pics/dhenize/d4.jpg';
 import dhenz6 from '../assets/pics/dhenize/d5.jpg';
-{/*import dhenz7 from '../assets/pics/dhenize/d5.jpg';*/}
+{/*import dhenz7 from '../assets/pics/dhenize/d.jpg';*/}
 import dhenz8 from '../assets/pics/dhenize/d7-1.png';
 import dhenz9 from '../assets/pics/dhenize/d7-2.png';
 import dhenz10 from '../assets/pics/dhenize/d10.jpg';
@@ -167,6 +169,8 @@ const Infos =[
 
 
 
+
+
 {/*MAIN FUNCTION*/}
 const Members = () => {
 
@@ -196,55 +200,72 @@ const Members = () => {
 
 
 
-
+{/*MAIN DESIGN*/}
   return (
     <section>
       {/*OPENING OF INTRO CARD*/}
-      <div className='ml-30 mr-30 mt-30 columns-2 flex justify-center'>
+      <div className='mt-30 flex justify-center'>
 
-        <button onClick = {prevSlide}>
-          <FaArrowAltCircleLeft className='text-white text-[3rem] hover:text-[#F533FF] mr-2'></FaArrowAltCircleLeft>
+        {/*LEFT ARROW FOR CAROUSEL*/}
+        <button onClick = {prevSlide} className='left-4 md:left-8 text-xl md:text-3xl text-white z-10'>
+          <FaArrowAltCircleLeft className='text-white text-[3rem] opacity-35 hover:text-[#F533FF] mr-2'></FaArrowAltCircleLeft>
         </button>
 
-        {/*OPENING OF INNER INTRO CARD*/}
-        <div className='mt-13 w-2xl'>
-          <p className='text-[2.5rem] text-[#F533FF]'>
-          {currentMember.name}
-          </p>
-          
-          <p className='text-[2rem] text-[#33FFC2] tracking-[7px]'>
-          {currentMember.role}
-          </p>
-          
-          <p className='text-[1rem] text-white mt-6 max-w-110'>
-          {currentMember.description}
-          </p>
-          
-          
-          <div className='space-y-2 mt-4'>
-            <div className='flex flex-row items-center space-x-1.5'>
-              <img src ={email} className='h-6'></img>
-              <p className='text-[1rem] text-[#33FFC2]'>
-              {currentMember.email}
-              </p>
-            </div>
-          
-            <div className='flex flex-row items-center space-x-3.5'>
-              <img src ={profile} className='h-6 ml-1.5'></img>
-              <p className='text-[1rem] text-[#33FFC2]'>
-              {currentMember.fb}
-              </p>
-            </div>
-          </div>
-        
-        </div> {/*ENDING OF INNER INTRO CARD*/}
-        
-        <div>
-          <img src = {dp} className='max-w-100'></img>
-        </div>
+        <AnimatePresence mode ="wait">
 
-        <button onClick = {nextSlide}>
-          <FaArrowAltCircleRight className='text-white text-[3rem] hover:text-[#F533FF] ml-2'></FaArrowAltCircleRight>
+          {/*OPENING OF INNER INTRO CARD*/}
+          <motion.div 
+            key={currentMember.name}
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 40 }}
+            transition={{ duration: 0.5 }}
+            className='flex flex-col-reverse md:flex-row space-x-6 items-center md:items-start text-center md:text-left'>
+            
+            <div className='mt-6 max-w-full lg:w-150 md:mt-13 md:w-80'>
+              <p className='lg:text-[2.5rem] md:text-[2rem] sm:text-[2rem] text-[#F533FF]'>
+              {currentMember.name}
+              </p>
+              
+              <p className='lg:text-[2rem] md:text-[1.5rem] sm:text-[1.5rem] text-[#33FFC2] tracking-[7px]'>
+              {currentMember.role}
+              </p>
+              
+              <p className='lg:text-[1rem] md:text-[0.9rem] sm:text-[0.9rem] text-white mt-6'>
+              {currentMember.description}
+              </p>
+              
+              
+              <div className='space-y-2 mt-4 flex flex-col items-center md:items-start'>
+                <div className='flex flex-row items-center space-x-1.5'>
+                  <img src ={email} className='h-6'></img>
+                  <p className='text-[1rem] sm:text-[0.9rem] text-[#33FFC2]'>
+                  {currentMember.email}
+                  </p>
+                </div>
+              
+                <div className='flex flex-row items-center space-x-3.5'>
+                  <img src ={profile} className='h-6 ml-1.5'></img>
+                  <p className='text-[1rem] sm:text-[0.9rem] text-[#33FFC2]'>
+                  {currentMember.fb}
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            {/*PICTURE OF MEMBER*/}
+            <div>
+              <img src = {currentMember.img} className='max-w-100 min-w-40 lg:w-100 md:w-90 sm:w-50 mx-auto mb-4 md:mb-0'></img>
+            </div>
+          
+          </motion.div> {/*ENDING OF INNER INTRO CARD*/}
+
+        </AnimatePresence>
+
+
+        {/*RIGHT ARROW FOR CAROUSEL*/}
+        <button onClick = {nextSlide} className='right-4 md:right-8 text-xl md:text-3xl text-white z-10'>
+          <FaArrowAltCircleRight className='text-white text-[3rem] opacity-35 hover:text-[#F533FF] ml-2'></FaArrowAltCircleRight>
         </button>
 
       </div> {/*ENDING OF INTRO CARD*/}
@@ -273,7 +294,7 @@ const Members = () => {
         </div>
       
 
-        <div ref={skillsRef} className='grid grid-cols-5 gap-15 mt-10 mb-20'>
+        <div ref={skillsRef} className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-10 mb-20 px-4'>
           {currentMember.skills.map((skill, index) => (
             <SkillPercent
               key={index}
@@ -333,7 +354,7 @@ const Members = () => {
         )}
 
 
-        <div className="flex overflow-x-auto space-x-2 max-w-full py-2 bg-[#2D2C2C] p-8 rounded-2xl">
+        <div className="gallery-scroll flex overflow-x-auto gap-4 max-w-full py-3 bg-[#2D2C2C] px-6 rounded-2xl">
           {currentMember.gallery.map((img, index) => (
             img && (
               <img
