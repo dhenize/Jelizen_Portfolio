@@ -3,11 +3,10 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import BackgroundSymbols from "./Components/BackgroundSymbols";
+
 import Homepage from "./Pages/Homepage";
-import AboutUs from "./Pages/AboutUs";
 import Members from "./Pages/Members";
-import Projects from "./Pages/Projects";
-import ContactUs from "./Pages/ContactUs";
 
 import backtop from "./assets/pics/up.png";
 
@@ -40,18 +39,14 @@ function App() {
 
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen relative overflow-hidden">
+      <BackgroundSymbols />
       <Router>
         <Header/>
-        <div 
-        
-        className="flex-grow">
+        <div className="flex-grow">
           <Routes>
             <Route path = "/" element={<Homepage/>} />
-            <Route path = "/about" element={<AboutUs/>} />
             <Route path = "/members" element={<Members/>} />
-            <Route path = "/project" element={<Projects/>} />
-            <Route path = "/contact" element={<ContactUs/>} />
           </Routes>
         </div>
 

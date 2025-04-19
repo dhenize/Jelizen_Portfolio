@@ -14,7 +14,9 @@ import{ motion, AnimatePresence } from 'framer-motion';
 
 
 {/*PICS FOR INTRODUCTION*/}
-import dp from '../assets/pics/sampledp2.png';
+import juliaPic from '../assets/pics/fdp.png';
+import dhenizePic from '../assets/pics/ldp.png';
+import jeannenPic from '../assets/pics/bdp.png';
 import email from '../assets/pics/emaillogo.png';
 import profile from '../assets/pics/proflogo.png';
 
@@ -104,7 +106,7 @@ const Infos =[
     description: "Born and raised in Bacoor City, Cavite and currently a 3rd year Information Technology student from Cavite State University - Imus Campus. Julia has strong interest in photography, video editing and image manipulation. Aside from editing, she enjoys exploring the web, looking for latest news and trends in technology and other fascinating topics. She also like drawing as her way to express and capture her innermost thoughts and ideas.",
     email: "ic.juliaann.fajardo@cvsu.edu.ph",
     fb: "Julia Fajardo",
-    img: dp,
+    img: juliaPic,
     skills: [
       {name: "Figma", img: figma, percentage: 60},
       {name: "YouCut", img: youcut, percentage: 75},
@@ -123,7 +125,7 @@ const Infos =[
     description: "Born in Manila and grew up in Imus City, Cavite. Currently, a third-year student taking information technology at Cavite State University—Imus Campus. Dhenize is an aspiring QA (Quality Assurance) interested in checking and troubleshooting systems. She is driven to learn more to attain her goal of being a full-stack developer. Additionally, she is passionate about creating digital and traditional arts, editing images and videos, and producing music.",
     email: "ic.dhenizekristafaith.lopez@cvsu.edu.ph",
     fb: "Dhenize C. Lopez",
-    img: dp,
+    img: dhenizePic,
     skills: [
       {name: "Python", img: python, percentage: 50},
       {name: "Java", img: java, percentage: 75},
@@ -145,7 +147,7 @@ const Infos =[
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tortor dui. In hac habitasse platea dictumst. Suspendisse potenti. Donec eu porta orci. Duis ligula enim, consectetur sit amet tellus quis, euismod aliquam velit. Nam finibus nulla vitae diam luctus venenatis. Nulla cursus erat enim, eget lacinia lacus eleifend in. Proin et consequat mi, sit amet iaculis nulla. Nunc commodo porttitor suscipit. Donec mattis justo est, id tincidunt lectus feugiat quis.",
     email: "ic.jeannen.basay@cvsu.edu.ph",
     fb: "Jeannen Kummer Basay",
-    img: dp,
+    img: jeannenPic,
     skills: [
       {name: "Capcut", img: capcut, percentage: 70},
       {name: "PicsArt", img: picsart, percentage: 70},
