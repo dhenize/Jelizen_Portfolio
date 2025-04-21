@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-const SkillPercent = ({ percentage, image }) => {
+const GenSkills = ({ percentage, image }) => {
   const [progress, setProgress] = useState(0);
   const [animate, setAnimate] = useState(false);
   const containerRef = useRef(null);
@@ -12,10 +12,10 @@ const SkillPercent = ({ percentage, image }) => {
           setAnimate(true);
         } else {
           setAnimate(false);
-          setProgress(0); // Reset to allow replay
+          setProgress(0); // Reset when out of view if you want to replay each time
         }
       },
-      { threshold: 0.6 }
+      { threshold: 0.6 } // Trigger when 60% of the element is visible
     );
 
     if (containerRef.current) observer.observe(containerRef.current);
@@ -28,16 +28,20 @@ const SkillPercent = ({ percentage, image }) => {
   useEffect(() => {
     if (!animate) return;
 
-    setProgress(0);
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev < percentage) return prev + 1;
-        clearInterval(interval);
-        return prev;
-      });
-    }, 15);
+    let start = null;
+    const duration = 1000;
 
-    return () => clearInterval(interval);
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progressTime = timestamp - start;
+      const newProgress = Math.min((progressTime / duration) * percentage, percentage);
+      setProgress(newProgress);
+      if (newProgress < percentage) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    requestAnimationFrame(step);
   }, [percentage, animate]);
 
   const radius = 40;
@@ -47,7 +51,7 @@ const SkillPercent = ({ percentage, image }) => {
   const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   return (
-    <div ref={containerRef} className="flex flex-col justify-center items-center m-4">
+    <div ref={containerRef} className="flex flex-col items-center justify-center m-4">
       <div className="relative w-[80px] h-[80px]">
         <svg height={radius * 2} width={radius * 2}>
           <circle
@@ -77,13 +81,13 @@ const SkillPercent = ({ percentage, image }) => {
         </svg>
 
         <div className="absolute inset-0 flex items-center justify-center">
-          <img src={image} className="w-[3.5rem] h-[3.5rem] rounded-full" />
+          <img src={image} alt="skill icon" className="w-14 h-14 rounded-full object-cover" />
         </div>
       </div>
 
-      <p className="text-[#F533FF] text-[1.5rem] mt-2">{progress} %</p>
+      <p className="text-[#F533FF] text-[1.5rem] mt-2 font-semibold">{Math.round(progress)}%</p>
     </div>
   );
 };
 
-export default SkillPercent;
+export default GenSkills;

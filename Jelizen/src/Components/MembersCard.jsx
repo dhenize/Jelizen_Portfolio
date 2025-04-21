@@ -31,13 +31,12 @@ const MemberCard = ({ name, role, isHovered, onHover, onLeave, image }) => {
         <img
           src={image}
           alt={name}
-          className={`absolute left-1/2 transform -translate-x-1/2 w-50 h-65 shadow-xl 
-            transition-transform duration-500 ${isHovered ? 'scale-100' : 'scale-80'}`}
+          className={'absolute top-0 left-0 w-full h-full object-cover'}
         />
       </motion.div>
 
       <p
-        className={`text-[1.5rem] font-semibold text-center transition-all duration-500 
+        className={`text-[1.3rem] font-semibold text-center transition-all duration-500 
           ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
         style={{ color: '#F533FF' }}
       >

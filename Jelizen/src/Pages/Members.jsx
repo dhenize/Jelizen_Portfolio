@@ -67,7 +67,8 @@ import dhenz3 from '../assets/pics/dhenize/d2-2.png';
 import dhenz4 from '../assets/pics/dhenize/d3.png';
 import dhenz5 from '../assets/pics/dhenize/d4.jpg';
 import dhenz6 from '../assets/pics/dhenize/d5.jpg';
-{/*import dhenz7 from '../assets/pics/dhenize/d.jpg';*/}
+import dhenz7 from '../assets/pics/dhenize/1POS.png';
+import dhenz7_2 from '../assets/pics/dhenize/1POS2.png';
 import dhenz8 from '../assets/pics/dhenize/d7-1.png';
 import dhenz9 from '../assets/pics/dhenize/d7-2.png';
 import dhenz10 from '../assets/pics/dhenize/d10.jpg';
@@ -139,7 +140,7 @@ const Infos =[
       {name: "Medibang", img: medibang, percentage: 65}
     ],
     tags: ["designing", "coding", "troubleshooting"],
-    gallery: [dhenz1, dhenz2, dhenz3, dhenz4, dhenz5, dhenz6, dhenz8, dhenz9, dhenz10, dhenz11, dhenz12, dhenz13, dhenz14]
+    gallery: [dhenz1, dhenz2, dhenz3, dhenz4, dhenz5, dhenz6, dhenz7, dhenz7_2, dhenz8, dhenz9, dhenz10, dhenz11, dhenz12, dhenz13, dhenz14]
   },
   {
     name: "JEANNEN BASAY",
@@ -194,6 +195,8 @@ const Members = () => {
     setFeatureddImage(currentMember.gallery[0]);
   }, [currentIndex]);
 
+
+  {/*FOR SKILLS PERCENTAGE*/}
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [skillsRef, skillsInView] = useInView({ threshold: 0.2 });
@@ -241,9 +244,9 @@ const Members = () => {
               <div className='space-y-2 mt-4 flex flex-col items-center md:items-start'>
                 <div className='flex flex-row items-center space-x-1.5'>
                   <img src ={email} className='h-6'></img>
-                  <p className='text-[1rem] sm:text-[0.9rem] text-[#33FFC2]'>
-                  {currentMember.email}
-                  </p>
+                  <a href={`mailto:${currentMember.email}`} className='text-sm sm:text-base text-[#33FFC2] hover:underline break-all'>
+                    {currentMember.email}
+                  </a>
                 </div>
               
                 <div className='flex flex-row items-center space-x-3.5'>
@@ -310,11 +313,11 @@ const Members = () => {
 
         
         <div className='flex flex-row justify-center items-center mt-10 mb-20 space-x-20'>
-        {currentMember.tags.map((tags, index) => (
-          <p key={index} className='bg-[#F533FF] text-[#F0F0F0] text-[1.3rem] rounded-xl px-5 py-1'>
-            {tags}
-          </p>
-        ))}
+          {currentMember.tags.map((tags, index) => (
+            <p key={index} className='bg-[#F533FF] text-[#F0F0F0] text-[1.3rem] rounded-xl px-5 py-1'>
+              {tags}
+            </p>
+          ))}
         </div>
         
 

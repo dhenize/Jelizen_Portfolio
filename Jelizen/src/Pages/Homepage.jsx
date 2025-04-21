@@ -1,26 +1,54 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logobig from '../assets/pics/logobig.png';
 import { motion } from 'framer-motion';
+
+{/*FOR MEMBERS CARD*/}
 import MemberCard from '../Components/MembersCard'; 
 
-
+{/*PICS OF MEMBERS*/}
 import juliaPic from '../assets/pics/fdp.png';
 import dhenizePic from '../assets/pics/ldp.png';
 import jeannenPic from '../assets/pics/bdp.png';
 
 
-const teamMembers = [
-  { name: 'Julia', role: 'UI/UX Designer', image: juliaPic },
-  { name: 'Dhenize', role: 'Back-End Developer', image: dhenizePic },
-  { name: 'Jeannen', role: 'Front-End Developer', image: jeannenPic }
-];
+//FOR GENERAL SKILLS
+{/*IMPORT FOR UPON SCROLLING ONLY FUNCTION*/}
+import useInView from '../Components/useInView.js';
+
+{/*FOR PERCENTAGE ANIMATION (IMPORTING JS PATH)*/}
+import GenSkills from '../Components/GenSkills.jsx';
+
+
+{/*PICS FOR SKILLS*/}
+import figma from '../assets/pics/s1.png';
+import youcut from '../assets/pics/s2.png';
+import picsart from '../assets/pics/s3.png';
+
+import java from '../assets/pics/s2-2.png';
+import cplus2 from '../assets/pics/s3-2.png';
+import reactjs from '../assets/pics/s8-2.png';
+
+import html from '../assets/pics/s4.png';
+import bootstrap from '../assets/pics/s5.png';
+import css from '../assets/pics/s6.png';
+
+
+
+{/*PICS FOR PROJECT*/}
+import fit from '../assets/pics/group/fit4.png';
+import fred from '../assets/pics/group/fredfries.png';
+import eduq from '../assets/pics/group/eduq.png';
+import tools from '../assets/pics/group/toolsrus.png';
+import dream from '../assets/pics/group/dreamy.png';
 
 
 
 
+
+{/*MAIN FUNCTION*/}
 function Homepage() {
   //Introduction
-  const introText = "Jalizen is committed to make difference in digital landscape through creating intuitive and visually stunning websites.";
+  const introText = "Jelizen is committed to make difference in digital landscape through creating intuitive and visually stunning websites.";
 
   const words = introText.split(" ");
   const duration = 3;
@@ -76,6 +104,12 @@ function Homepage() {
 
 
   //MEMBERS
+  const teamMembers = [
+    { name: 'Julia', role: 'UI/UX Designer', image: juliaPic },
+    { name: 'Dhenize', role: 'Fullstack Developer', image: dhenizePic },
+    { name: 'Jeannen', role: 'Front-End Developer', image: jeannenPic }
+  ];
+
   const [hoveredMember, setHoveredMember] = useState(null);
   const [showRole, setShowRole] = useState(false);
 
@@ -90,10 +124,46 @@ function Homepage() {
   };
 
   
+  //TECHNICAL SKILLS
+  const [skillsRef, skillsInView] = useInView({ threshold: 0.2 });
+  const skills = [
+    { name: "Figma", img: figma, percentage: 80 },
+    { name: "YouCut", img: youcut, percentage: 75 },
+    { name: "PicsArt", img: picsart, percentage: 75 },
+    { name: "Java", img: java, percentage: 75 },
+    { name: "React", img: reactjs, percentage: 60 },
+    { name: "C++", img: cplus2, percentage: 65 },
+    { name: "HTML", img: html, percentage: 80 },
+    { name: "Bootstrap", img: bootstrap, percentage: 35 },
+    { name: "CSS", img: css, percentage: 70 }
+  ];
+  
+
+  //PROJECTS
+  {/*CAROUSEL FUNCTION*/}
+  const [currentIndex, setCurrentIndex] = useState(0);
+    const projects = [
+      {img: fit, title: 'Fit4School', desc: 'Fit4School is...'},
+      {img: fred, title: 'Fred Fries POS', desc: 'Fred Fries is...'},
+      {img: eduq, title: 'EduQueue', desc: 'EduQueue is...'},
+      {img: tools, title: 'Tools R Us', desc: 'Tools R Us is...'},
+      {img: dream, title: 'Dreamy D Lite', desc: 'Dreamy D Lite is...'}
+    ];
+    
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
+      }, 4000);
+  
+      return () => clearInterval(interval);
+    }, [projects.length]);
 
 
 
 
+
+
+  {/*MAIN DESIGN*/}
   return (
     <section>
       {/* OPENING (LOGO, NAME, TAGLINE) */}
@@ -117,30 +187,43 @@ function Homepage() {
 
       {/* INTRODUCTION TEXT */}
       <motion.div
-        className='text-center px-4 sm:px-6 lg:px-10 py-10'
+        className="text-center px-4 sm:px-6 lg:px-10 py-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
+        viewport={{ once: true }} // <- Only animate on first scroll-in
       >
         <motion.p
-          className='text-[16px] sm:text-[18px] md:text-[20px] text-white max-w-4xl mx-auto leading-relaxed flex flex-wrap justify-center'
-          initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true }}
+          className="text-[16px] sm:text-[18px] md:text-[20px] text-white max-w-4xl mx-auto leading-relaxed flex flex-wrap justify-center"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.08 // controls speed of "typing"
+              }
+            }
+          }}
         >
           {words.map((word, index) => (
             <motion.span
-              className='inline-block mr-[4px]'
+              className="inline-block mr-[4px]"
               key={index}
-              initial={{ color: '#ffffff99' }}
-              animate={{ color: '#ffffff' }}
-              transition={{ delay: index * delayperword, duration: 3 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.08
+              }}
+              viewport={{ once: true }}
             >
               {word}&nbsp;
             </motion.span>
           ))}
         </motion.p>
       </motion.div>
+
 
       {/* MISSION AND VISION */}
       <motion.div
@@ -209,7 +292,7 @@ function Homepage() {
                 variants={typewriter}
                 viewport={{ once: true }}
               >
-                v  i s  i  o  n
+                v i s i o n
               </motion.p>
             </div>
 
@@ -352,7 +435,7 @@ function Homepage() {
 
 
       {/* TECHNICAL SKILLS */}
-      <div className='mb-55'>
+      <div className='mb-40'>
         <div className='flex items-center mb-5 w-full justify-end'>
           <motion.div
             className='h-[1.5px] bg-white flex-grow shadow-[0_0_10px_#ffffff,0_0_20px_#ffffff] mr-4'
@@ -360,13 +443,26 @@ function Homepage() {
             whileInView={{ scaleX: 0.9 }}
             transition={{ duration: 2 }}
             style={{ originX: 1 }}
-          />
+            />
           <p className='text-[#33FFC2] text-[25px] tracking-widest whitespace-nowrap text-right pr-5'>t e c h n i c a l  s k i l l s</p>
+        </div>
+        <div ref = {skillsRef} className='m-25 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-6 px-4'>
+          {skills.map((skill, index) => (
+            <GenSkills
+              key={index}
+              image={skill.img}
+              percentage={skill.percentage}
+              animate={skillsInView}
+            />
+          ))}
         </div>
       </div>
 
+
+
+
       {/* Projects */}
-      <div id = "project" className='flex flex-col mb-55'>
+      <div id = "project" className='flex flex-col mb-55 items-center'>
         <div className='flex items-center mb-5 w-full'>
           <p className='text-[#33FFC2] text-[25px] tracking-widest whitespace-nowrap mr-4 pl-5'>P r o j e c t s</p>
           <motion.div
@@ -376,6 +472,38 @@ function Homepage() {
             transition={{ duration: 2 }}
             style={{ originX: 0 }}
           />
+        </div>
+
+        <div className='relative rounded-2xl bg-[#3F3A3A] h-[30rem] w-[50rem] mt-5'>
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                index === currentIndex ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
+              }`}
+              >
+              <img
+                src={project.img}
+                alt={project.title}
+                className="w-full h-full object-cover rounded-2xl"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-5 px-15 text-white rounded-b-2xl">
+                <h2 className="text-[3rem] text-[#F533FF]">{project.title}</h2>
+                <p className="text-[1.2rem]">{project.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-6 flex justify-center gap-2">
+          {projects.map((_, index) => (
+            <div
+              key={index}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentIndex ? 'bg-[#33FFC2] scale-125' : 'bg-gray-300'
+              }`}
+            />
+          ))}
         </div>
       </div>
 
