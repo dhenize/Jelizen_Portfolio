@@ -127,15 +127,15 @@ function Homepage() {
   //TECHNICAL SKILLS
   const [skillsRef, skillsInView] = useInView({ threshold: 0.2 });
   const skills = [
-    { name: "Figma", img: figma, percentage: 80 },
+    { name: "Figma", img: figma, percentage: 70 },
     { name: "YouCut", img: youcut, percentage: 75 },
-    { name: "PicsArt", img: picsart, percentage: 75 },
+    { name: "PicsArt", img: picsart, percentage: 72 },
     { name: "Java", img: java, percentage: 75 },
     { name: "React", img: reactjs, percentage: 60 },
     { name: "C++", img: cplus2, percentage: 65 },
-    { name: "HTML", img: html, percentage: 80 },
+    { name: "HTML", img: html, percentage: 58 },
     { name: "Bootstrap", img: bootstrap, percentage: 35 },
-    { name: "CSS", img: css, percentage: 70 }
+    { name: "CSS", img: css, percentage: 52 }
   ];
   
 
@@ -143,11 +143,11 @@ function Homepage() {
   {/*CAROUSEL FUNCTION*/}
   const [currentIndex, setCurrentIndex] = useState(0);
     const projects = [
-      {img: fit, title: 'Fit4School', desc: 'Fit4School is...'},
-      {img: fred, title: 'Fred Fries POS', desc: 'Fred Fries is...'},
-      {img: eduq, title: 'EduQueue', desc: 'EduQueue is...'},
-      {img: tools, title: 'Tools R Us', desc: 'Tools R Us is...'},
-      {img: dream, title: 'Dreamy D Lite', desc: 'Dreamy D Lite is...'}
+      {img: fit, title: 'Fit4School', desc: 'A School Uniform Appointment and Queuing System '},
+      {img: fred, title: 'Fred Fries POS', desc: 'A Point-of-sale System designed for snack franchise store Fred Fries.'},
+      {img: eduq, title: 'EduQueue', desc: 'A School Registrar Ticketing System.'},
+      {img: tools, title: 'Tools R Us', desc: 'A Point-of-sale System designed for a Tools Store.'},
+      {img: dream, title: 'Dreamy D Lite', desc: 'A Python-based Point-of-sale System for an Ice Cream Store.'}
     ];
     
     useEffect(() => {
@@ -487,7 +487,7 @@ function Homepage() {
                 alt={project.title}
                 className="w-full h-full object-cover rounded-2xl"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-5 px-15 text-white rounded-b-2xl">
+              <div className="absolute bottom-0 left-0 right-0 bg-black/75 p-5 px-15 text-white rounded-b-2xl">
                 <h2 className="text-[3rem] text-[#F533FF]">{project.title}</h2>
                 <p className="text-[1.2rem]">{project.desc}</p>
               </div>

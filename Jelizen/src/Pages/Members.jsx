@@ -111,7 +111,9 @@ const Infos =[
     skills: [
       {name: "Figma", img: figma, percentage: 60},
       {name: "YouCut", img: youcut, percentage: 75},
+      {name: "Canva", img: css, percentage: 75},
       {name: "PicsArt", img: picsart, percentage: 75},
+      
 
       {name: "HTML", img: html, percentage: 35},
       {name: "Bootstrap", img: bootstrap, percentage: 35},
@@ -145,7 +147,7 @@ const Infos =[
   {
     name: "JEANNEN BASAY",
     role: "frontend designer",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tortor dui. In hac habitasse platea dictumst. Suspendisse potenti. Donec eu porta orci. Duis ligula enim, consectetur sit amet tellus quis, euismod aliquam velit. Nam finibus nulla vitae diam luctus venenatis. Nulla cursus erat enim, eget lacinia lacus eleifend in. Proin et consequat mi, sit amet iaculis nulla. Nunc commodo porttitor suscipit. Donec mattis justo est, id tincidunt lectus feugiat quis.",
+    description: "Born in Bacoor, Cavite and grow up in Imus City, Cavite. Currently, a third year student and taking a information technology at Cavite State University in Imus Campus. Jeannen is interested in web designing, editing video and photos. Aside from this, I also have a little knowledge of drawing but I am not a fan and I also like to listen to music and explore the topic on social media.",
     email: "ic.jeannen.basay@cvsu.edu.ph",
     fb: "Jeannen Kummer Basay",
     img: jeannenPic,

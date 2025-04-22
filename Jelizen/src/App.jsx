@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import BackgroundSymbols from "./Components/BackgroundSymbols";
+import ScrollToHash from './Components/ScrollToHash';
 
 import Homepage from "./Pages/Homepage";
 import Members from "./Pages/Members";
@@ -44,9 +45,11 @@ function App() {
       <Router>
         <Header/>
         <div className="flex-grow">
+          <ScrollToHash />
           <Routes>
             <Route path = "/" element={<Homepage/>} />
             <Route path = "/members" element={<Members/>} />
+            <Route path="/member/:id" element={<Members />} />
           </Routes>
         </div>
 
