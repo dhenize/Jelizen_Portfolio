@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 
+
 {/*FOR MEMBERS CARD*/}
 import MemberCard from '../Components/MembersCard'; 
 
@@ -349,19 +350,19 @@ function Homepage() {
         </motion.p>
 
         <div className="flex justify-center items-end mt-10">
-          {teamMembers.map((member, index) => (
-              <MemberCard
-                key={member.name}
-                name={member.name}
-                role={member.role}
-                image={member.image}
-                isHovered={hoveredMember === member.name}
-                showRole={hoveredMember === member.name && showRole}
-                onHover={() => handleMouseEnter(member.name)}
-                onLeave={handleMouseLeave}
-                isActive={hoveredMember === member.name}             
-              />  
-            ))}
+        {teamMembers.map((member, index) => (
+            <MemberCard
+              key={member.name}
+              name={member.name}
+              role={member.role}
+              image={member.image}
+              isHovered={hoveredMember === member.name}
+              showRole={hoveredMember === member.name && showRole}
+              onHover={() => handleMouseEnter(member.name)}
+              onLeave={handleMouseLeave}
+              isActive={hoveredMember === member.name}             
+            />  
+          ))}
         </div>
 
         {/* Carousel-like dots below */}

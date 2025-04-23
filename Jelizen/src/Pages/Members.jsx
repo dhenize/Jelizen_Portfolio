@@ -196,6 +196,7 @@ const Members = () => {
   useEffect(() => {
     setFeatureddImage(currentMember.gallery[0]);
   }, [currentIndex]);
+  
 
 
   {/*FOR SKILLS PERCENTAGE*/}
@@ -209,180 +210,134 @@ const Members = () => {
 
 {/*MAIN DESIGN*/}
   return (
-    <section>
-      {/*OPENING OF INTRO CARD*/}
-      <div className='mt-30 flex justify-center'>
+    <section className="w-full max-w-screen-2xl px-4 sm:px-6 md:px-8 mx-auto">
+  {/* OPENING OF INTRO CARD */}
+  <div className="mt-30 flex justify-center items-center flex-wrap relative">
 
-        {/*LEFT ARROW FOR CAROUSEL*/}
-        <button onClick = {prevSlide} className='left-4 md:left-8 text-xl md:text-3xl text-white z-10'>
-          <FaArrowAltCircleLeft className='text-white text-[3rem] opacity-35 hover:text-[#F533FF] mr-2'></FaArrowAltCircleLeft>
-        </button>
+    {/* LEFT ARROW */}
+    <button onClick={prevSlide} className="absolute left-2 sm:left-6 text-xl sm:text-3xl text-white z-10">
+      <FaArrowAltCircleLeft className="text-white text-[2rem] sm:text-[3rem] opacity-35 hover:text-[#F533FF] mr-2" />
+    </button>
 
-        <AnimatePresence mode ="wait">
+    <AnimatePresence mode="wait">
+      {/* INNER INTRO CARD */}
+      <motion.div
+        key={currentMember.name}
+        initial={{ opacity: 0, x: -40 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: 40 }}
+        transition={{ duration: 0.5 }}
+        className="flex flex-col-reverse md:flex-row items-center md:items-start text-center md:text-left gap-6"
+        >
+        {/* MEMBER INFO */}
+        <div className="mt-6 w-full md:w-2/3 lg:w-[30rem] lg:py-15 max-w-full">
+          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#F533FF]">{currentMember.name}</p>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#33FFC2] tracking-[5px]">{currentMember.role}</p>
+          <p className="text-sm sm:text-base text-white mt-4">{currentMember.description}</p>
 
-          {/*OPENING OF INNER INTRO CARD*/}
-          <motion.div 
-            key={currentMember.name}
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 40 }}
-            transition={{ duration: 0.5 }}
-            className='flex flex-col-reverse md:flex-row space-x-6 items-center md:items-start text-center md:text-left'>
-            
-            <div className='mt-6 max-w-full lg:w-150 md:mt-13 md:w-80'>
-              <p className='lg:text-[2.5rem] md:text-[2rem] sm:text-[2rem] text-[#F533FF]'>
-              {currentMember.name}
-              </p>
-              
-              <p className='lg:text-[2rem] md:text-[1.5rem] sm:text-[1.5rem] text-[#33FFC2] tracking-[7px]'>
-              {currentMember.role}
-              </p>
-              
-              <p className='lg:text-[1rem] md:text-[0.9rem] sm:text-[0.9rem] text-white mt-6'>
-              {currentMember.description}
-              </p>
-              
-              
-              <div className='space-y-2 mt-4 flex flex-col items-center md:items-start'>
-                <div className='flex flex-row items-center space-x-1.5'>
-                  <img src ={email} className='h-6'></img>
-                  <a href={`mailto:${currentMember.email}`} className='text-sm sm:text-base text-[#33FFC2] hover:underline break-all'>
-                    {currentMember.email}
-                  </a>
-                </div>
-              
-                <div className='flex flex-row items-center space-x-3.5'>
-                  <img src ={profile} className='h-6 ml-1.5'></img>
-                  <p className='text-[1rem] sm:text-[0.9rem] text-[#33FFC2]'>
-                  {currentMember.fb}
-                  </p>
-                </div>
-              </div>
+          <div className="space-y-2 mt-4 flex flex-col items-center md:items-start">
+            <div className="flex items-center space-x-2">
+              <img src={email} className="h-6" />
+              <a href={`mailto:${currentMember.email}`} className="text-sm sm:text-base text-[#33FFC2] hover:underline break-all">
+                {currentMember.email}
+              </a>
             </div>
-            
-            {/*PICTURE OF MEMBER*/}
-            <div>
-              <img src = {currentMember.img} className='max-w-100 min-w-40 lg:w-100 md:w-90 sm:w-50 mx-auto mb-4 md:mb-0'></img>
+            <div className="flex items-center space-x-2">
+              <img src={profile} className="h-6" />
+              <p className="text-sm sm:text-base text-[#33FFC2]">{currentMember.fb}</p>
             </div>
-          
-          </motion.div> {/*ENDING OF INNER INTRO CARD*/}
-
-        </AnimatePresence>
-
-
-        {/*RIGHT ARROW FOR CAROUSEL*/}
-        <button onClick = {nextSlide} className='right-4 md:right-8 text-xl md:text-3xl text-white z-10'>
-          <FaArrowAltCircleRight className='text-white text-[3rem] opacity-35 hover:text-[#F533FF] ml-2'></FaArrowAltCircleRight>
-        </button>
-
-      </div> {/*ENDING OF INTRO CARD*/}
-      
-
-      {/*DOTS FOR CAROUSEL*/}
-      <div className='flex justify-center mt-6'>
-        {Infos.map((_, index) => (
-          <span
-            key={index}
-            className={`mx-1 h-3 w-3 rounded-full ${index === currentIndex ? 'bg-[#33FFC2]' : 'bg-[#D9D9D9]'} transition-all duration-300`}
-          />
-        ))}
-      </div>
-      
-      
-      
-
-
-      {/*OPENING OF SKILLS*/}
-      <div className='flex justify-center items-center flex-col m-25'>
-        <div className='m-10'>
-          <p className='text-[2rem] text-[#33FFC2] font-semibold tracking-[15px]'>
-          skills
-          </p>
-        </div>
-      
-
-        <div ref={skillsRef} className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-10 mb-20 px-4'>
-          {currentMember.skills.map((skill, index) => (
-            <SkillPercent
-              key={index}
-              image={skill.img}
-              percentage={skill.percentage}
-              animate={skillsInView}
-            />
-          ))}
-        </div>
-
-
-        
-        <div className='flex flex-row justify-center items-center mt-10 mb-20 space-x-20'>
-          {currentMember.tags.map((tags, index) => (
-            <p key={index} className='bg-[#F533FF] text-[#F0F0F0] text-[1.3rem] rounded-xl px-5 py-1'>
-              {tags}
-            </p>
-          ))}
-        </div>
-        
-
-      </div> {/*ENDING OF SKILLS*/}
-
-
-
-
-
-      {/*FOR GALLERY*/}
-      <div className='flex flec-col justify-center items-center'>
-        <p className='text-[2rem] text-[#33FFC2] font-semibold tracking-[15px]'>
-          projects
-        </p>
-      </div>
-      <div className='flex flex-col items-center mt-5 mb-40 bg-[#3F3A3A] m-40 pt-5 pb-7 rounded-4xl'>
-        <div className='max-w-4xl h-[350px] mb-6 overflow-hidden rounded-xl shadow-lg transition-all duration-700 ease-in-out'>
-          <img
-            src={featuredImage}
-            alt="Featured"
-            className="w-full h-full object-cover rounded-xl cursor-pointer"
-            onClick={() => setIsModalOpen(true)}
-          />
-        </div>
-
-
-        {isModalOpen && (
-          <div
-            className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center"
-            onClick={() => setIsModalOpen(false)} // Close on background click
-          >
-            <img
-              src={featuredImage}
-              alt="Full view"
-              className="max-w-full max-h-full object-contain rounded-lg"
-              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image
-            />
           </div>
-        )}
-
-
-        <div className="gallery-scroll flex overflow-x-auto gap-4 max-w-full py-3 bg-[#2D2C2C] px-6 rounded-2xl">
-          {currentMember.gallery.map((img, index) => (
-            img && (
-              <img
-                key={index}
-                src={img}
-                alt={`Thumbnail ${index}`}
-                className={`w-24 h-24 object-cover rounded-lg cursor-pointer inline-block transition-transform duration-300 ease-in-out hover:scale-105 ${
-                  featuredImage === img ? 'ring-4 ring-[#F533FF]' : ''
-                }`}
-                onClick={() => setFeatureddImage(img)}
-              />
-            )
-          ))}
         </div>
+
+        {/* MEMBER IMAGE */}
+        <div>
+          <img src={currentMember.img} className="w-32 sm:w-40 md:w-60 lg:w-72 xl:w-80 2xl:w-96 max-w-full mx-auto mb-4 md:mb-0" />
+        </div>
+      </motion.div>
+    </AnimatePresence>
+
+    {/* RIGHT ARROW */}
+    <button onClick={nextSlide} className="absolute right-2 sm:right-6 text-xl sm:text-3xl text-white z-10">
+      <FaArrowAltCircleRight className="text-white text-[2rem] sm:text-[3rem] opacity-35 hover:text-[#F533FF] ml-2" />
+    </button>
+  </div>
+
+  {/* DOTS FOR CAROUSEL */}
+  <div className="flex justify-center mt-6">
+    {Infos.map((_, index) => (
+      <span
+        key={index}
+        className={`mx-1 h-3 w-3 rounded-full ${index === currentIndex ? 'bg-[#33FFC2]' : 'bg-[#D9D9D9]'} transition-all duration-300`}
+      />
+    ))}
+  </div>
+
+  {/* SKILLS SECTION */}
+  <div className="flex flex-col justify-center items-center mt-20 mb-10">
+    <div className="m-10">
+      <p className="text-xl sm:text-2xl md:text-3xl text-[#33FFC2] font-semibold tracking-[10px] uppercase">skills</p>
+    </div>
+
+    <div ref={skillsRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4 md:gap-6 px-2 sm:px-4">
+      {currentMember.skills.map((skill, index) => (
+        <SkillPercent key={index} image={skill.img} percentage={skill.percentage} animate={skillsInView} />
+      ))}
+    </div>
+
+    {/* TAGS */}
+    <div className="flex flex-wrap justify-center items-center mt-10 gap-3 px-4">
+      {currentMember.tags.map((tag, index) => (
+        <p key={index} className="bg-[#F533FF] text-[#F0F0F0] text-sm md:text-base rounded-xl px-4 py-1">
+          {tag}
+        </p>
+      ))}
+    </div>
+  </div>
+
+  {/* GALLERY SECTION */}
+  <div className="flex flex-col justify-center items-center">
+    <p className="text-xl sm:text-2xl md:text-3xl text-[#33FFC2] font-semibold tracking-[10px] uppercase">projects</p>
+  </div>
+
+  <div className="flex flex-col items-center mt-5 mb-40 bg-[#3F3A3A] px-4 sm:px-10 pt-5 pb-7 rounded-3xl">
+    <div className="w-full max-w-4xl aspect-video mb-6 overflow-hidden rounded-xl shadow-lg">
+      <img
+        src={featuredImage}
+        alt="Featured"
+        className="w-full h-full object-cover rounded-xl cursor-pointer"
+        onClick={() => setIsModalOpen(true)}
+      />
+    </div>
+
+    {isModalOpen && (
+      <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center" onClick={() => setIsModalOpen(false)}>
+        <img
+          src={featuredImage}
+          alt="Full view"
+          className="max-w-full max-h-[90vh] object-contain rounded-lg"
+          onClick={(e) => e.stopPropagation()}
+        />
       </div>
-      {/*ENDING FOR GALLERY*/}
-      
+    )}
 
+    <div className="gallery-scroll flex overflow-x-auto gap-3 sm:gap-4 max-w-full py-3 bg-[#2D2C2C] px-4 sm:px-6 rounded-2xl">
+      {currentMember.gallery.map((img, index) => (
+        img && (
+          <img
+            key={index}
+            src={img}
+            alt={`Thumbnail ${index}`}
+            className={`w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-cover rounded-lg cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105 ${
+              featuredImage === img ? 'ring-4 ring-[#F533FF]' : ''
+            }`}
+            onClick={() => setFeatureddImage(img)}
+          />
+        )
+      ))}
+    </div>
+  </div>
+</section>
 
-
-    </section>
   )
 }
 
