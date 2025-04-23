@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import logobig from '../assets/pics/logobig.png';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+
 
 {/*FOR MEMBERS CARD*/}
 import MemberCard from '../Components/MembersCard'; 
+
 
 {/*PICS OF MEMBERS*/}
 import juliaPic from '../assets/pics/fdp.png';
@@ -40,6 +43,10 @@ import fred from '../assets/pics/group/fredfries.png';
 import eduq from '../assets/pics/group/eduq.png';
 import tools from '../assets/pics/group/toolsrus.png';
 import dream from '../assets/pics/group/dreamy.png';
+
+
+{/*Maps for location */}
+import mapImage from '../assets/pics/map.png';
 
 
 
@@ -123,6 +130,11 @@ function Homepage() {
     setShowRole(false);
   };
 
+  const navigate = useNavigate();
+
+
+  
+
   
   //TECHNICAL SKILLS
   const [skillsRef, skillsInView] = useInView({ threshold: 0.2 });
@@ -167,19 +179,19 @@ function Homepage() {
   return (
     <section>
       {/* OPENING (LOGO, NAME, TAGLINE) */}
-      <div className='m-60 flex flex-col justify-center items-center'>
+      <div className='my-20 sm:my-24 md:my-32 lg:my-40 xl:my-48 2xl:my-60  flex flex-col justify-center items-center'>
         <div className="grid gap-2">
-          <img className="max-h-35" src={logobig} alt="Logo" />
+          <img className="h-30 sm:h-24 md:h-28 lg:h-32 xl:h-36 2xl:h-40 object-contain" src={logobig} alt="Logo" />
         </div>
 
-        <div className='flex justify-center items-center'>
-          <p className='text-[30px] text-[#33FFC2] font-semibold tracking-[15px]'>
+        <div className='flex justify-center items-center mt-4'>
+          <p className='text-[20px] sm:text-[25px] md:text-[30px] lg:text-[35px] xl:text-[40px] 2xl:text-[45px] text-[#33FFC2] font-semibold tracking-[10px] sm:tracking-[12px] md:tracking-[15px]'>
             Jelizen
           </p>
         </div>
 
-        <div className='flex justify-center items-center'>
-          <p className='text-[13px] text-white tracking-wide'>
+        <div className='flex justify-center items-center mt-2'>
+          <p className='text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] xl:text-[14px] 2xl:text-[15px] text-white tracking-wide text-center'>
             expand your imagination
           </p>
         </div>
@@ -227,7 +239,7 @@ function Homepage() {
 
       {/* MISSION AND VISION */}
       <motion.div
-        className='px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 py-16 sm:py-20 mt-16 sm:mt-20'
+        className='px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 py-10 sm:py-20 mt-16 sm:mt-20'
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -238,7 +250,7 @@ function Homepage() {
           <div className='flex flex-col'>
             <div className='flex items-center mb-5 w-full'>
               <motion.p
-                className='text-[#33FFC2] text-[20px] sm:text-[22px] md:text-[24px] lg:text-[25px] tracking-widest whitespace-nowrap mr-4 overflow-hidden'
+                className='text-[#33FFC2] text-[22px] sm:text-[24px] md:text-[25px] lg:text-[24px] xl:text-[25px] 2xl:text-[26px] tracking-widest whitespace-nowrap mr-4 overflow-hidden'
                 initial="hidden"
                 whileInView="visible"
                 custom={0}
@@ -250,7 +262,7 @@ function Homepage() {
 
               <motion.div
                 className='h-[1.5px] bg-white flex-grow shadow-[0_0_10px_#ffffff,0_0_20px_#ffffff]'
-                whileInView={{ scaleX: 2 }}
+                whileInView={{ scaleX: 3 }}
                 transition={{ duration: 2 }}
                 style={{ originX: 0 }}
               />
@@ -275,17 +287,17 @@ function Homepage() {
           </div>
 
           {/* VISION LINE */}
-          <div className='mt-55 sm:mt-15 md:mt-55'>
+          <div className='mt-40 sm:mt-15 md:mt-55'>
             <div className='flex items-center mb-5 w-full justify-end'>
               <motion.div
                 className='h-[1.5px] bg-white flex-grow shadow-[0_0_10px_#ffffff,0_0_20px_#ffffff] mr-2 sm:mr-4 max-w-[100px] sm:max-w-[150px] md:max-w-[200px] lg:max-w-[250px] xl:max-w-[300px] 2xl:max-w-[350px]'
                 initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 2 }}
+                whileInView={{ scaleX: 3 }}
                 transition={{ duration: 2 }}
                 style={{ originX: 1 }}
               />
               <motion.p
-                className='text-[#33FFC2] text-[20px] sm:text-[22px] md:text-[24px] lg:text-[25px] tracking-widest whitespace-nowrap text-right overflow-hidden'
+                className='text-[#33FFC2] text-[22px] sm:text-[24px] md:text-[25px] lg:text-[24px] xl:text-[25px] 2xl:text-[26px] tracking-widest whitespace-nowrap text-right overflow-hidden'
                 initial="hidden"
                 whileInView="visible"
                 custom={1}
@@ -338,18 +350,18 @@ function Homepage() {
 
         <div className="flex justify-center items-end mt-10">
           {teamMembers.map((member, index) => (
-            <MemberCard
-              key={member.name}
-              name={member.name}
-              role={member.role}
-              image={member.image}
-              isHovered={hoveredMember === member.name}
-              showRole={hoveredMember === member.name && showRole}
-              onHover={() => handleMouseEnter(member.name)}
-              onLeave={handleMouseLeave}
-              isActive={hoveredMember === member.name}
-            />
-          ))}
+              <MemberCard
+                key={member.name}
+                name={member.name}
+                role={member.role}
+                image={member.image}
+                isHovered={hoveredMember === member.name}
+                showRole={hoveredMember === member.name && showRole}
+                onHover={() => handleMouseEnter(member.name)}
+                onLeave={handleMouseLeave}
+                isActive={hoveredMember === member.name}             
+              />  
+            ))}
         </div>
 
         {/* Carousel-like dots below */}
@@ -378,10 +390,11 @@ function Homepage() {
           {/* Header */}
           <div className='flex items-center mb-5 w-full'>
             <motion.p
-              className='text-[#33FFC2] text-[22px] sm:text-[25px] tracking-widest whitespace-nowrap mr-4 overflow-hidden'
-              initial={{ width: 0 }}
-              whileInView={{ width: "auto" }}
-              transition={{ duration: 2 }}
+              className='text-[#33FFC2] text-[22px] sm:text-[24px] md:text-[25px] lg:text-[24px] xl:text-[25px] 2xl:text-[26px] tracking-widest whitespace-nowrap mr-4 overflow-hidden'
+              initial="hidden"
+              whileInView="visible"
+              custom={0}
+              variants={typewriter}
               viewport={{ once: true }}
             >
               a b o u t &nbsp;u s
@@ -444,7 +457,16 @@ function Homepage() {
             transition={{ duration: 2 }}
             style={{ originX: 1 }}
             />
-          <p className='text-[#33FFC2] text-[25px] tracking-widest whitespace-nowrap text-right pr-5'>t e c h n i c a l  s k i l l s</p>
+          <motion.p 
+          className='text-[#33FFC2] text-[22px] sm:text-[24px] md:text-[25px] lg:text-[24px] xl:text-[25px] 2xl:text-[26px] tracking-widest  whitespace-nowrap text-right pr-2 sm:pr-4 md:pr-5 lg:pr-6 xl:pr-8'
+          initial="hidden"
+          whileInView="visible"
+          custom={1}
+          variants={typewriter}
+          viewport={{ once: true }}
+          >
+            t e c h n i c a l  s k i l l s
+          </motion.p>
         </div>
         <div ref = {skillsRef} className='m-25 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-6 px-4'>
           {skills.map((skill, index) => (
@@ -462,19 +484,19 @@ function Homepage() {
 
 
       {/* Projects */}
-      <div id = "project" className='flex flex-col mb-55 items-center'>
-        <div className='flex items-center mb-5 w-full'>
-          <p className='text-[#33FFC2] text-[25px] tracking-widest whitespace-nowrap mr-4 pl-5'>P r o j e c t s</p>
+      <div id="project" className="flex flex-col items-center mb-28 sm:mb-36">
+      <div className="flex items-center mb-5 w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+      <p className='text-[#33FFC2] text-[22px] sm:text-[24px] md:text-[25px] lg:text-[24px] xl:text-[25px] 2xl:text-[26px] tracking-widest whitespace-nowrap mr-4'>P r o j e c t s</p>
           <motion.div
             className='h-[1.5px] bg-white flex-grow shadow-[0_0_10px_#ffffff,0_0_20px_#ffffff]'
             initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 0.9 }}
+            whileInView={{ scaleX: 1 }}
             transition={{ duration: 2 }}
             style={{ originX: 0 }}
           />
         </div>
 
-        <div className='relative rounded-2xl bg-[#3F3A3A] h-[30rem] w-[50rem] mt-5'>
+        <div className='relative rounded-2xl bg-[#3F3A3A] mt-6 w-[90%] sm:w-[75%] md:w-[95%] lg:w-[95%] xl:w-[95%] 2xl:w-[95%] h-[30rem] sm:h-[25rem] md:h-[30rem] lg:h-[30rem] xl:h-[32rem]'>
           {projects.map((project, index) => (
             <div
               key={index}
@@ -487,9 +509,9 @@ function Homepage() {
                 alt={project.title}
                 className="w-full h-full object-cover rounded-2xl"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-black/75 p-5 px-15 text-white rounded-b-2xl">
-                <h2 className="text-[3rem] text-[#F533FF]">{project.title}</h2>
-                <p className="text-[1.2rem]">{project.desc}</p>
+              <div className="absolute bottom-0 left-0 right-0 bg-black/75 p-4 sm:p-5 text-white rounded-b-2xl">
+                <h2 className="text-[1.8rem] sm:text-[2.2rem] md:text-[2.5rem] lg:text-[2.8rem] xl:text-[3rem] text-[#F533FF]">{project.title}</h2>
+                <p className="text-[1rem] sm:text-[1.1rem] md:text-[1.2rem]">{project.desc}</p>
               </div>
             </div>
           ))}
@@ -507,17 +529,50 @@ function Homepage() {
         </div>
       </div>
 
+
+
+
       {/* Contact Us */}
-      <div id = "contact" className='px-10 py-20 mt-20'>
-        <motion.h2
-          className='text-[#33FFC2] text-[25px] tracking-widest text-center mb-8'
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 3 }}
-        >
-          Contact Us
-        </motion.h2>
+      <div id="contact" className="mt-10 text-white">
+      <motion.h2
+        className="text-[#33FFC2] text-[22px] sm:text-[25px] md:text-[30px] tracking-widest text-center mb-5"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 3 }}
+      >
+        C o n t a c t  u s
+      </motion.h2>
+
+      <div className="w-full overflow-hidden relative ">
+      <a href="https://www.google.com/maps?q=Cavite+Civic+Center,+Palico+IV,+Imus+City,+Cavite+4103" target="_blank" rel="noopener noreferrer">
+      <img 
+      src={mapImage}
+      alt="Cavite Civic Center Location"
+      className="w-full object-cover transition-transform duration-300 hover:scale-105 h-[300px] sm:h-[290px] md:h-[350px] lg:h-[450px] xl:h-[500px] 2xl:h-[550px] max-w-[100%] sm:max-w-[100%] md:max-w-[100%] lg:max-w-[100%] xl:max-w-[100%] 2xl:max-w-[100%]"
+      />
+      <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="absolute text-[#F533FF] w-`13` h-13 z-10"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      style={{
+        top: '53.9%',
+        left: '55.9%',
+        transform: 'translate(-50%, -50%)',
+        position: 'absolute',
+      }}
+    >
+      <path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z" />
+    </svg>
+      </a>
+
+      <div className="absolute bottom-4 left-4  px-4 py-2 rounded-xl">
+        <span className="text-xs sm:text-sm md:text-base font-semibold text-white">
+          Cavite Civic Center, Palico IV, Imus City, Cavite 4103
+        </span>
       </div>
+      </div>
+    </div>
     </section>
   );
 }

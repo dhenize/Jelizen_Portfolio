@@ -49,7 +49,6 @@ function App() {
           <Routes>
             <Route path = "/" element={<Homepage/>} />
             <Route path = "/members" element={<Members/>} />
-            <Route path="/member/:id" element={<Members />} />
           </Routes>
         </div>
 
