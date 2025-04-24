@@ -178,6 +178,11 @@ const Infos =[
 
 {/*MAIN FUNCTION*/}
 const Members = () => {
+  {/*RETURN TO TOP UPON LOADING*/}
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
 
   {/*FOR CAROUSEL SLIDES*/}
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -196,8 +201,8 @@ const Members = () => {
   useEffect(() => {
     setFeatureddImage(currentMember.gallery[0]);
   }, [currentIndex]);
-  
 
+  
 
   {/*FOR SKILLS PERCENTAGE*/}
   const [isModalOpen, setIsModalOpen] = useState(false);

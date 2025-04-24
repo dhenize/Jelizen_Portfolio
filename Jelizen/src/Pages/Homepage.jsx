@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import logobig from '../assets/pics/logobig.png';
 import { motion } from 'framer-motion';
+import {Link} from 'react-router-dom';
+
 
 {/*FOR MEMBERS CARD*/}
 import MemberCard from '../Components/MembersCard'; 
@@ -127,7 +129,6 @@ function Homepage() {
     setHoveredMember(null);
     setShowRole(false);
   };
-
 
 
 
@@ -346,34 +347,38 @@ function Homepage() {
           Meet Our Team
         </motion.p>
 
-        <div className="flex justify-center items-end mt-10">
-        {teamMembers.map((member, index) => (
-            <MemberCard
+        <div className="w-full px-4 sm:px-6 md:px-8">
+          <Link to = "/members">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center mt-10 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14 max-w-[100%] sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] 2xl:max-w-[1536px] mx-auto">
+              {teamMembers.map((member) => (
+                <MemberCard
+                key={member.name}
+                name={member.name}
+                role={member.role}
+                image={member.image}
+                isHovered={hoveredMember === member.name}
+                showRole={hoveredMember === member.name && showRole}
+                onHover={() => handleMouseEnter(member.name)}
+                onLeave={handleMouseLeave}
+                isActive={hoveredMember === member.name}             
+                />  
+              ))}
+            </div>
+          </Link>
+          
+          {/* Carousel-like dots below */}
+          <div className="flex justify-center mt-6 space-x-2 sm:space-x-3 md:space-x-4 lg:space-x-5 xl:space-x-6">
+            {teamMembers.map((member) => (
+              <span
               key={member.name}
-              name={member.name}
-              role={member.role}
-              image={member.image}
-              isHovered={hoveredMember === member.name}
-              showRole={hoveredMember === member.name && showRole}
-              onHover={() => handleMouseEnter(member.name)}
-              onLeave={handleMouseLeave}
-              isActive={hoveredMember === member.name}             
-            />  
-          ))}
-        </div>
-
-        {/* Carousel-like dots below */}
-        <div className="flex justify-center mt-4 space-x-2">
-          {teamMembers.map((member) => (
-            <span
-              key={member.name}
-              className={`w-3 h-3 rounded-full transition-all duration-300
+              className={`rounded-full transition-all duration-300
                 ${hoveredMember === member.name ? 'bg-[#33FFC2]' : 'bg-gray-400'}
-              `}
-            />
-          ))}
+                w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4
+                `}
+              />
+            ))}
+          </div>
         </div>
-
       </motion.div>
 
 
@@ -446,8 +451,8 @@ function Homepage() {
 
 
       {/* TECHNICAL SKILLS */}
-      <div className='mb-40'>
-        <div className='flex items-center mb-5 w-full justify-end'>
+      <div className='w-full px-4 sm:px-6 md:px-8 mb-40'>
+        <div className='flex items-center mb-6 justify-end max-w-full'>
           <motion.div
             className='h-[1.5px] bg-white flex-grow shadow-[0_0_10px_#ffffff,0_0_20px_#ffffff] mr-4'
             initial={{ scaleX: 0 }}
@@ -456,17 +461,20 @@ function Homepage() {
             style={{ originX: 1 }}
             />
           <motion.p 
-          className='text-[#33FFC2] text-[22px] sm:text-[24px] md:text-[25px] lg:text-[24px] xl:text-[25px] 2xl:text-[26px] tracking-widest  whitespace-nowrap text-right pr-2 sm:pr-4 md:pr-5 lg:pr-6 xl:pr-8'
-          initial="hidden"
-          whileInView="visible"
-          custom={1}
-          variants={typewriter}
-          viewport={{ once: true }}
+            className='text-[#33FFC2] tracking-[15px] whitespace-nowrap text-right pr-2 text-[22px] sm:text-[24px] md:text-[25px] lg:text-[24px] xl:text-[25px] 2xl:text-[26px] 
+                      sm:block md:flex sm:text-center md:text-right'
+            initial="hidden"
+            whileInView="visible"
+            custom={1}
+            variants={typewriter}
+            viewport={{ once: true }}
           >
-            t e c h n i c a l  s k i l l s
+            <span className="block sm:inline md:mr-5">technical</span> 
+            <span className="block sm:inline">skills</span>
           </motion.p>
         </div>
-        <div ref = {skillsRef} className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4 md:gap-6 px-2 sm:px-4'>
+
+        <div ref = {skillsRef} className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6 md:gap-8 lg:gap-10 max-w-[100%] sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] 2xl:max-w-[1536px] mx-auto'>
           {skills.map((skill, index) => (
             <GenSkills
               key={index}
