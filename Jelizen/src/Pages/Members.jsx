@@ -14,82 +14,82 @@ import{ motion, AnimatePresence } from 'framer-motion';
 
 
 {/*PICS FOR INTRODUCTION*/}
-import juliaPic from '../assets/Pics/fdp.png';
-import dhenizePic from '../assets/Pics/ldp.png';
-import jeannenPic from '../assets/Pics/bdp.png';
-import email from '../assets/Pics/emaillogo.png';
-import profile from '../assets/Pics/proflogo.png';
+import juliaPic from '../assets/pics/fdp.png';
+import dhenizePic from '../assets/pics/ldp.png';
+import jeannenPic from '../assets/pics/bdp.png';
+import email from '../assets/pics/emaillogo.png';
+import profile from '../assets/pics/proflogo.png';
 
 {/*PICS FOR SKILLS*/}
-import figma from '../assets/Pics/s1.png';
-import youcut from '../assets/Pics/s2.png';
-import picsart from '../assets/Pics/s3.png';
-import html from '../assets/Pics/s4.png';
-import bootstrap from '../assets/Pics/s5.png';
-import css from '../assets/Pics/s6.png';
+import figma from '../assets/pics/s1.png';
+import youcut from '../assets/pics/s2.png';
+import picsart from '../assets/pics/s3.png';
+import html from '../assets/pics/s4.png';
+import bootstrap from '../assets/pics/s5.png';
+import css from '../assets/pics/s6.png';
 
-import python from '../assets/Pics/s1-2.png';
-import java from '../assets/Pics/s2-2.png';
-import cplus2 from '../assets/Pics/s3-2.png';
-import vb from '../assets/Pics/s4-2.png';
-import reactjs from '../assets/Pics/s8-2.png';
-import medibang from '../assets/Pics/s9-2.png';
+import python from '../assets/pics/s1-2.png';
+import java from '../assets/pics/s2-2.png';
+import cplus2 from '../assets/pics/s3-2.png';
+import vb from '../assets/pics/s4-2.png';
+import reactjs from '../assets/pics/s8-2.png';
+import medibang from '../assets/pics/s9-2.png';
 
-import capcut from '../assets/Pics/s1-3.jpg';
-import canva from '../assets/Pics/s2-3.png';
-import ps from '../assets/Pics/s3-3.png';
-import js from '../assets/Pics/s4-3.png';
-import php from '../assets/Pics/s5-3.png';
+import capcut from '../assets/pics/s1-3.jpg';
+import canva from '../assets/pics/s2-3.png';
+import ps from '../assets/pics/s3-3.png';
+import js from '../assets/pics/s4-3.png';
+import php from '../assets/pics/s5-3.png';
 
 
 {/*FAJARDO'S PORTFOLIO PICS*/}
-import julia1 from '../assets/Pics/julia/j1.jpg';
-import julia2 from '../assets/Pics/julia/j2.jpg';
-import julia3 from '../assets/Pics/julia/j3.jpg';
-import julia4 from '../assets/Pics/julia/j4.jpg';
-import julia5 from '../assets/Pics/julia/j5.jpg';
-import julia6 from '../assets/Pics/julia/j6.jpg';
-import julia7 from '../assets/Pics/julia/j7.jpg';
-import julia8 from '../assets/Pics/julia/j8.jpg';
-import julia9 from '../assets/Pics/julia/j9.jpg';
-import julia10 from '../assets/Pics/julia/j10-1.png';
-import julia11 from '../assets/Pics/julia/j10-2.png';
-import julia12 from '../assets/Pics/julia/j10-3.png';
-import julia13 from '../assets/Pics/julia/j11-1.jpg';
-import julia14 from '../assets/Pics/julia/j11-2.jpg';
-import julia15 from '../assets/Pics/julia/j11-3.jpg';
+import julia1 from '../assets/pics/julia/j1.jpg';
+import julia2 from '../assets/pics/julia/j2.jpg';
+import julia3 from '../assets/pics/julia/j3.jpg';
+import julia4 from '../assets/pics/julia/j4.jpg';
+import julia5 from '../assets/pics/julia/j5.jpg';
+import julia6 from '../assets/pics/julia/j6.jpg';
+import julia7 from '../assets/pics/julia/j7.jpg';
+import julia8 from '../assets/pics/julia/j8.jpg';
+import julia9 from '../assets/pics/julia/j9.jpg';
+import julia10 from '../assets/pics/julia/j10-1.png';
+import julia11 from '../assets/pics/julia/j10-2.png';
+import julia12 from '../assets/pics/julia/j10-3.png';
+import julia13 from '../assets/pics/julia/j11-1.jpg';
+import julia14 from '../assets/pics/julia/j11-2.jpg';
+import julia15 from '../assets/pics/julia/j11-3.jpg';
 
 
 {/*LOPEZ'S PORTFOLIO PICS*/}
-import dhenz1 from '../assets/Pics/dhenize/d1.png';
-import dhenz2 from '../assets/Pics/dhenize/d2-1.png';
-import dhenz3 from '../assets/Pics/dhenize/d2-2.png';
-import dhenz4 from '../assets/Pics/dhenize/d3.png';
-import dhenz5 from '../assets/Pics/dhenize/d4.jpg';
-import dhenz6 from '../assets/Pics/dhenize/d5.jpg';
-import dhenz7 from '../assets/Pics/dhenize/1POS.png';
-import dhenz7_2 from '../assets/Pics/dhenize/1POS2.png';
-import dhenz8 from '../assets/Pics/dhenize/d7-1.png';
-import dhenz9 from '../assets/Pics/dhenize/d7-2.png';
-import dhenz10 from '../assets/Pics/dhenize/d10.jpg';
-import dhenz11 from '../assets/Pics/dhenize/d11.png';
-import dhenz12 from '../assets/Pics/dhenize/d12.jpg';
-import dhenz13 from '../assets/Pics/dhenize/d12-2.jpg';
-import dhenz14 from '../assets/Pics/dhenize/d13.jpg';
+import dhenz1 from '../assets/pics/dhenize/d1.png';
+import dhenz2 from '../assets/pics/dhenize/d2-1.png';
+import dhenz3 from '../assets/pics/dhenize/d2-2.png';
+import dhenz4 from '../assets/pics/dhenize/d3.png';
+import dhenz5 from '../assets/pics/dhenize/d4.jpg';
+import dhenz6 from '../assets/pics/dhenize/d5.jpg';
+import dhenz7 from '../assets/pics/dhenize/1POS.png';
+import dhenz7_2 from '../assets/pics/dhenize/1POS2.png';
+import dhenz8 from '../assets/pics/dhenize/d7-1.png';
+import dhenz9 from '../assets/pics/dhenize/d7-2.png';
+import dhenz10 from '../assets/pics/dhenize/d10.jpg';
+import dhenz11 from '../assets/pics/dhenize/d11.png';
+import dhenz12 from '../assets/pics/dhenize/d12.jpg';
+import dhenz13 from '../assets/pics/dhenize/d12-2.jpg';
+import dhenz14 from '../assets/pics/dhenize/d13.jpg';
 
 
 {/*JEANNEN'S PORTFOLIO PICS*/}
-import jean1 from '../assets/Pics/jeannen/je1.jpeg';
-import jean2 from '../assets/Pics/jeannen/je2.jpeg';
-import jean3 from '../assets/Pics/jeannen/je3.jpeg';
-import jean4 from '../assets/Pics/jeannen/je4.jpeg';
-import jean5 from '../assets/Pics/jeannen/je5.jpeg';
-import jean6 from '../assets/Pics/jeannen/je6.jpeg';
-import jean7 from '../assets/Pics/jeannen/je7.jpeg';
-import jean8 from '../assets/Pics/jeannen/je8.jpeg';
-import jean9 from '../assets/Pics/jeannen/je9.jpeg';
-import jean10 from '../assets/Pics/jeannen/je10.jpeg';
-import jean11 from '../assets/Pics/jeannen/je11.jpeg';
+import jean1 from '../assets/pics/jeannen/je1.jpeg';
+import jean2 from '../assets/pics/jeannen/je2.jpeg';
+import jean3 from '../assets/pics/jeannen/je3.jpeg';
+import jean4 from '../assets/pics/jeannen/je4.jpeg';
+import jean5 from '../assets/pics/jeannen/je5.jpeg';
+import jean6 from '../assets/pics/jeannen/je6.jpeg';
+import jean7 from '../assets/pics/jeannen/je7.jpeg';
+import jean8 from '../assets/pics/jeannen/je8.jpeg';
+import jean9 from '../assets/pics/jeannen/je9.jpeg';
+import jean10 from '../assets/pics/jeannen/je10.jpeg';
+import jean11 from '../assets/pics/jeannen/je11.jpeg';
 
 
 

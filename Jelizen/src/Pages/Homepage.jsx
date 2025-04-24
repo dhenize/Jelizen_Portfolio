@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import logobig from '../assets/Pics/logobig.png';
+import logobig from '../assets/pics/logobig.png';
 import { motion } from 'framer-motion';
 import {Link} from 'react-router-dom';
 
@@ -9,9 +9,9 @@ import MemberCard from '../Components/MembersCard';
 
 
 {/*PICS OF MEMBERS*/}
-import juliaPic from '../assets/Pics/fdp.png';
-import dhenizePic from '../assets/Pics/ldp.png';
-import jeannenPic from '../assets/Pics/bdp.png';
+import juliaPic from '../assets/pics/fdp.png';
+import dhenizePic from '../assets/pics/ldp.png';
+import jeannenPic from '../assets/pics/bdp.png';
 
 
 //FOR GENERAL SKILLS
@@ -23,30 +23,30 @@ import GenSkills from '../Components/GenSkills.jsx';
 
 
 {/*PICS FOR SKILLS*/}
-import figma from '../assets/Pics/s1.png';
-import youcut from '../assets/Pics/s2.png';
-import picsart from '../assets/Pics/s3.png';
+import figma from '../assets/pics/s1.png';
+import youcut from '../assets/pics/s2.png';
+import picsart from '../assets/pics/s3.png';
 
-import java from '../assets/Pics/s2-2.png';
-import cplus2 from '../assets/Pics/s3-2.png';
-import reactjs from '../assets/Pics/s8-2.png';
+import java from '../assets/pics/s2-2.png';
+import cplus2 from '../assets/pics/s3-2.png';
+import reactjs from '../assets/pics/s8-2.png';
 
-import html from '../assets/Pics/s4.png';
-import bootstrap from '../assets/Pics/s5.png';
-import css from '../assets/Pics/s6.png';
+import html from '../assets/pics/s4.png';
+import bootstrap from '../assets/pics/s5.png';
+import css from '../assets/pics/s6.png';
 
 
 
 {/*PICS FOR PROJECT*/}
-import fit from '../assets/Pics/group/fit4.png';
-import fred from '../assets/Pics/group/fredfries.png';
-import eduq from '../assets/Pics/group/eduq.png';
-import tools from '../assets/Pics/group/toolsrus.png';
-import dream from '../assets/Pics/group/dreamy.png';
+import fit from '../assets/pics/group/fit4.png';
+import fred from '../assets/pics/group/fredfries.png';
+import eduq from '../assets/pics/group/eduq.png';
+import tools from '../assets/pics/group/toolsrus.png';
+import dream from '../assets/pics/group/dreamy.png';
 
 
 {/*Maps for location */}
-import mapImage from '../assets/Pics/map.png';
+import mapImage from '../assets/pics/map.png';
 
 
 

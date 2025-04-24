@@ -1,7 +1,7 @@
 import React from 'react'
-import logosm from '../assets/Pics/logosmall.png';
-import git from '../assets/Pics/gitlogo.png';
-import fb from '../assets/Pics/fblogo.png';
+import logosm from '../assets/pics/logosmall.png';
+import git from '../assets/pics/gitlogo.png';
+import fb from '../assets/pics/fblogo.png';
 
 const Footer = () => {
   return (
