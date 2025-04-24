@@ -9,7 +9,7 @@ import ScrollToHash from './Components/ScrollToHash';
 import Homepage from "./Pages/Homepage";
 import Members from "./Pages/Members";
 
-import backtop from "./assets/pics/up.png";
+import backtop from "./assets/Pics/up.png";
 
 
 function App() {
