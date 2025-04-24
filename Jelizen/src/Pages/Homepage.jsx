@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import logobig from '../assets/pics/logobig.png';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-
-
 
 {/*FOR MEMBERS CARD*/}
 import MemberCard from '../Components/MembersCard'; 
@@ -131,7 +128,7 @@ function Homepage() {
     setShowRole(false);
   };
 
-  const navigate = useNavigate();
+
 
 
   
@@ -469,7 +466,7 @@ function Homepage() {
             t e c h n i c a l  s k i l l s
           </motion.p>
         </div>
-        <div ref = {skillsRef} className='m-25 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-6 px-4'>
+        <div ref = {skillsRef} className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4 md:gap-6 px-2 sm:px-4'>
           {skills.map((skill, index) => (
             <GenSkills
               key={index}
