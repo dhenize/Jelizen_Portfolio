@@ -336,15 +336,15 @@ function Homepage() {
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 2 }}
-      >
+        >
         <p className="text-[15px] tracking-widest text-white">the minds behind</p>
         <motion.p
-          className="text-[#33FFC2] text-[25px] mt-2 mb-10"
+          className="ml-1 text-[#33FFC2] text-[25px] mt-2 mb-10 tracking-[15px]"
           initial={{ width: 0 }}
           animate={{ width: '100%' }}
           transition={{ duration: 2 }}
         >
-          Meet Our Team
+          Jelizen
         </motion.p>
 
         <div className="w-full px-4 sm:px-6 md:px-8">
